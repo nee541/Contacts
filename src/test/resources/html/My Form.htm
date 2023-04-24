@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>My Form</title>
+    <style>
+        #form-container {
+            margin: 0 auto;
+            max-width: 500px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: none;
+            border-bottom: 1px solid #ccc;
+            font-size: 16px;
+
+        }
+
+        .add-user-keys {
+            display: flex;
+            flex-direction: row;
+            height: 30px;
+        }
+
+        .add-user-keys .other-key-text {
+            align-content: center;
+            flex: 2;
+            margin-top: 8px;
+        }
+
+        .key-value {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .key-value input[type="text"] {
+            width: 45%;
+            margin: 1em;
+            flex: auto;
+            min-width: fit-content;
+        }
+
+        .buttons {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .add-remove {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .btn {
+            padding: 5px 13px;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            align-self: center;
+        }
+
+        .btn-success {
+            background-color: #4CAF50;
+        }
+
+        .btn-danger {
+            background-color: #f44336;
+        }
+
+        .icon {
+            cursor: pointer;
+            font-size: 16px;
+            margin-left: 10px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .middle {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="form-container">
+        <h1 style="text-align: center;">Add Contact</h1>
+        <form>
+            <label>Name:</label>
+            <input type="text" readonly="readonly">
+
+            <label>Phone Number:</label>
+            <input type="text" readonly="readonly">
+
+            <div class="add-user-keys">
+                <h4 class="other-key-text">Other Keys:</h4>
+                <select id="newKey">
+                    <option value="new">Self-defined</option>
+                    <option value="email" selected="selected">Email</option>
+                    <option value="address">Address</option>
+                </select>
+                <button type="button" class="btn btn-success" onclick="addKeyValue()">Add</button>
+            </div>
+
+            <div id="user-keys">
+
+            </div>
+
+            <div class="buttons">
+                <button type="submit" class="btn btn-success text-center middle" style="margin-top: 8em;">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function addKeyValue() {
+            var userKeysContainer = document.getElementById("user-keys");
+
+            // Create new key-value pair elements
+            var selectedKey = document.getElementById("newKey");
+
+            var keyInput = document.createElement("input");
+            keyInput.type = "text";
+            console.log(selectedKey.value)
+            if (selectedKey.value !== "new") {
+                keyInput.value = selectedKey.options[selectedKey.selectedIndex].text;
+            }
+            else {
+                keyInput.placeholder = "Key";
+            }
+
+            var valueInput = document.createElement("input");
+            valueInput.type = "text";
+            valueInput.placeholder = "Value";
+
+            var removeIcon = document.createElement("span");
+            removeIcon.classList.add("icon");
+            removeIcon.innerHTML = "&#x2715"; // X symbol to indicate removal
+
+            var keyValue = document.createElement("div");
+            keyValue.classList.add("key-value");
+            keyValue.appendChild(keyInput);
+            keyValue.appendChild(valueInput);
+            keyValue.appendChild(removeIcon);
+
+            // Add new key-value pair to the form
+            userKeysContainer.appendChild(keyValue);
+
+            // Attach click event to the remove icon
+            removeIcon.addEventListener("click", function () {
+                userKeysContainer.removeChild(keyValue);
+            });
+        }
+    </script>
+
+
+</body>
+<style type="text/css"></style>
+<style type="text/css"></style>
+
+</html>

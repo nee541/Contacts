@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My Form</title>
+    <style>
+        #form-container {
+            margin: 0 auto;
+            max-width: 500px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: none;
+            border-bottom: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        .add-user-keys {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .add-user-keys .other-key-text{
+            margin-bottom: 10px;
+        }
+
+        .key-value {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .key-value input[type="text"] {
+            width: 45%;
+        }
+
+        .buttons {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .add-remove {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .btn {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .btn-success {
+            background-color: #4CAF50;
+        }
+
+        .btn-danger {
+            background-color: #f44336;
+        }
+
+        .icon {
+            cursor: pointer;
+            font-size: 16px;
+            margin-left: 10px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="form-container">
+        <form>
+            <label>Name:</label>
+            <input type="text" value="John" readonly>
+
+            <label>Phone Number:</label>
+            <input type="text" value="1234567890" readonly>
+
+            <div class="add-user-keys">
+                <span class="other-key-text">Other Keys:</span>
+                <select id="newKey">
+                    <option value="new" selected>Self-defined</option>
+                    <option value="email">Email</option>
+                    <option value="address">Address</option>
+                </select>
+                <button type="button" class="btn btn-success" onclick="addKeyValue()">Add</button>
+            </div>
+
+            <div id="user-keys"></div>
+
+            <div class="buttons">
+                <!-- <button type="button" class="btn btn-success" onclick="addKeyValue()">Add Key-Value Pair</button> -->
+
+                <button type="submit" class="btn btn-success text-center">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function addKeyValue() {
+            var userKeysContainer = document.getElementById("user-keys");
+            
+            // Create new key-value pair elements
+            var selectedKey = document.getElementById("newKey");
+
+            var keyInput = document.createElement("input");
+            keyInput.type = "text";
+            if (selectedKey.value == "new") {
+                keyInput.value = selectedKey.options[selectedKey.selectedIndex].text;
+            }
+            else {
+                keyInput.placeholder = "Key";
+            }
+
+            var valueInput = document.createElement("input");
+            valueInput.type = "text";
+            valueInput.placeholder = "Value";
+
+            var removeIcon = document.createElement("span");
+            removeIcon.classList.add("icon");
+            removeIcon.innerHTML = "&#x2715"; // X symbol to indicate removal
+
+            var keyValue = document.createElement("div");
+            keyValue.classList.add("key-value");
+            keyValue.appendChild(keyInput);
+            keyValue.appendChild(valueInput);
+            keyValue.appendChild(removeIcon);
+
+            // Add new key-value pair to the form
+            userKeysContainer.appendChild(keyValue);
+
+            // Attach click event to the remove icon
+            removeIcon.addEventListener("click", function () {
+                userKeysContainer.removeChild(keyValue);
+            });
+        }
+    </script>
+</body>
+
+</html>

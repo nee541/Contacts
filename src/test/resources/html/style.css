@@ -1,0 +1,560 @@
+/* Styles for left and right view */
+.left-view {
+    width: 55%;
+    float: left;
+    /* color: aqua; */
+    /* background-color: beige; */
+    margin-top: 1%;
+    margin-bottom: 1%;
+    margin-left: 2%;
+    margin-right: 1%
+}
+
+/* .right-view {
+    width: 30%;
+    float: right;
+    color: blueviolet;
+} */
+
+/* Styles for navigation bar */
+.navbar {
+    background-color: #f2f2f2;
+    padding: 10px;
+    height: 120px;
+}
+
+/* Styles for form elements in navbar */
+.navbar form {
+    display: inline-block;
+    flex: auto;
+    flex-direction: row;
+}
+
+/* Styles for search input in navbar */
+.navbar .search-input {
+    width: 200px;
+    padding: 4px;
+    margin-right: 10px;
+    border-radius: 4px;
+    border: none;
+}
+
+.navbar .search-input-button {
+    /* align-items: center; */
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    /* width: 2.5rem; */
+}
+
+.navbar .search-input-text {
+    background-color: #f0f5fb;
+    border: .125rem solid transparent;
+    border-radius: 4px;
+    box-shadow: none;
+    color: #00265d;
+    display: block;
+    font-family: inherit;
+    font-size: 1.125rem;
+    height: 3.125rem;
+    margin: 0 0 .625rem;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-left: 0px;
+    outline-width: 0;
+    transition-property: border-color;
+    transition-duration: 0.15s, 0.15s;
+    transition-timing-function: linear, linear;
+    transition-delay: 0s, 0s;
+    width: 100%;
+    padding-left: 3rem;
+    padding-right: 3rem;
+}
+
+/* Styles for select button in navbar */
+.navbar select {
+    padding: 4px;
+    margin-right: 10px;
+    border-radius: 4px;
+    border: none;
+}
+
+/* Styles for add contact button in navbar */
+.navbar .add-contact-btn {
+    background-color: #008CBA;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Clear floats after navbar */
+.clear {
+    clear: both;
+}
+
+.contact-wrapper {
+    height: calc(98vh - 180px);
+    overflow-y: scroll;
+    overflow-x: hidden;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+}
+
+.contact-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact {
+    height: 35px;
+    width: 100;
+    background-color: #ffffff;
+}
+
+.contact-list li {
+    color: #00265d;
+    cursor: pointer;
+    padding: .9375rem;
+    position: relative;
+    width: 100%;
+    align-items: center;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+
+.contact-list li:hover {
+    background-color: rgba(255, 213, 121, .3);
+}
+
+.contact-list li::after {
+    border-bottom: 1px solid #f0f5fb;
+    bottom: 0;
+    content: " ";
+    left: .9375rem;
+    position: absolute;
+    right: .9375rem;
+}
+
+.contact-details {
+    align-items: center;
+    display: flex;
+    /* flex-flow: column wrap; */
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* list-style: none; */
+    list-style-position: outside;
+    list-style-image: none;
+    list-style-type: none;
+    /* margin: 0 0 1.25rem; */
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 1.25rem;
+    margin-left: 0px;
+    /* padding: 0; */
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+}
+
+.contact-details__header {
+    border-bottom-color: rgb(240, 245, 251);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    font-size: 1.125rem;
+    line-height: 1.625rem;
+    padding-bottom: 1.875rem;
+    padding-top: .9375rem;
+    text-align: center;
+    width: 100%;
+}
+
+.contact-details__section {
+    align-items: center;
+    border-bottom-color: rgb(240, 245, 251);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    font-size: 1.125rem;
+    line-height: 1.625rem;
+    padding-top: 1.25rem;
+    padding-right: 0px;
+    padding-bottom: 1.25rem;
+    padding-left: 0px;
+    width: 100%;
+}
+
+.delete-contact {
+    color: #e6176d;
+    display: block;
+    font-size: 1.125rem;
+    font-weight: 700;
+    margin-bottom: 1.25rem;
+    text-align: center;
+}
+
+.panel-next {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+.panel-next__inner {
+    box-shadow: 0 0 2px rgba(0, 0, 0, .2);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    background-color: #fff;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    min-height: 0;
+    overflow-x: auto;
+    overflow-y: auto;
+    position: relative;
+}
+
+.panel-next__loader {
+    align-items: center;
+    background: #FFFFFF;
+    border-radius: 4px;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1;
+}
+
+/* right view */
+.right-view {
+    width: 40%;
+    height: 100%;
+    overflow: auto;
+    box-sizing: border-box;
+    padding: 20px;
+    float: right;
+    color: #008CBA;
+    border: #e6176d;
+}
+
+.contact-name {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.edit-button,
+.update-button,
+.delete-button {
+    margin-right: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.edit-button:hover,
+.update-button:hover,
+.delete-button:hover {
+    background-color: #3e8e41;
+}
+
+.key-value-pairs {
+    display: flex;
+    flex-direction: column;
+    scroll-behavior: auto;
+    width: 100%;
+    height: 80%;
+}
+
+.kv-pair {
+    display: flex;
+    align-items: center;
+    padding: 5px 0;
+}
+
+.key {
+    font-weight: bold;
+    width: 40%;
+    margin-right: 10px;
+    margin-left: 5%;
+}
+
+.value {
+    flex: 1;
+    overflow-wrap: break-word;
+}
+
+.close-cta {
+    align-items: center;
+    background-color: #eff3fa;
+    border-radius: 50%;
+    display: flex;
+    flex-shrink: 0;
+    height: 1.875rem;
+    justify-content: center;
+    position: absolute;
+    right: .625rem;
+    top: .625rem;
+    width: 1.875rem;
+}
+
+a:hover,
+a:focus {
+    color: #009d9c;
+}
+
+.close-cta:hover {
+    background-color: #ccd4df;
+}
+
+.select:focus {
+    border-color: blue;
+  }
+  html body form fieldset#custom {
+    width: 30%;
+  }
+  
+  html body form fieldset#custom div.select[data-multiple] div.header {
+    display: none;
+  }
+  
+  html body form fieldset#custom div.select div.header {
+    content: "↓";
+    display: flex;
+    flex: 1;
+    align-items: center;
+    padding: 0;
+    position: relative;
+    width: auto;
+    box-sizing: border-box;
+    border-width: 1px;
+    border-style: inherit;
+    border-color: inherit;
+    border-radius: inherit;
+  }
+  
+  html body form fieldset#custom div.select div.header::after {
+    content: "↓";
+    align-self: stretch;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    padding: 0.5em;
+  }
+  
+  html body form fieldset#custom div.select div.header:hover::after {
+    background-color: blue;
+  }
+  
+  .select .header select {
+    appearance: none;
+    font-family: inherit;
+    font-size: inherit;
+    padding: 0;
+    border-width: 0;
+    width: 100%;
+    flex: 1;
+    display: none;
+  }
+  
+  .select .header select optgroup {
+    display: none;
+  }
+  
+  .select select div.option {
+    display: none;
+  }
+  
+  html body form fieldset#custom div.select {
+    user-select: none;
+    box-sizing: border-box;
+    position: relative;
+    border-radius: 4px;
+    border-style: solid;
+    border-width: 0;
+    border-color: gray;
+    width: auto;
+    display: inline-block;
+  }
+  
+  html body form fieldset#custom div.select:focus,
+  html body form fieldset#custom div.select:hover {
+    border-color: blue;
+  }
+  
+  html body form fieldset#custom div.select[data-open] {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  
+  html body form fieldset#custom div.select[data-open] datalist {
+    display: initial;
+  }
+  
+  html body form fieldset#custom div.select datalist {
+    appearance: none;
+    position: absolute;
+    border-style: solid;
+    border-width: 1px;
+    border-color: gray;
+    left: 0;
+    display: none;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 2;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+  }
+  
+  html body form fieldset#custom div.select datalist div.option {
+    background-color: white;
+    margin-bottom: 1px;
+    cursor: pointer;
+    padding: 0.5em;
+    border-width: 0;
+  }
+  
+  html body form fieldset#custom div.select datalist div.option:hover,
+  html body form fieldset#custom div.select datalist div.option:focus,
+  html body form fieldset#custom div.select datalist div.option:checked {
+    background-color: blue;
+    color: white;
+  }
+  
+  html
+    body
+    form
+    fieldset#custom
+    div.select
+    div.optgroup
+    div.option[data-disabled] {
+    color: gray;
+  }
+  
+  html
+    body
+    form
+    fieldset#custom
+    div.select
+    div.optgroup
+    div.option[data-checked] {
+    background-color: blue;
+    color: white;
+  }
+  
+  html body form fieldset#custom div.select div.optgroup div.label {
+    font-weight: bold;
+  }
+  
+  html body form fieldset#custom div.select div.optgroup div.option div.label {
+    font-weight: normal;
+    padding: 0.25em;
+  }
+  
+  html body form fieldset#custom div.select div.header span {
+    flex: 1;
+    padding: 0.5em;
+  }
+
+  .search-input-wrapper {
+    width: 30% !important;
+    background: #FFFFFF;
+    position: relative;
+    max-width: 30.3125rem;
+  }
+
+  .search-input-wrapper .search-input {
+    position: relative;
+    width: 100%;
+  }
+
+  .search-input-wrapper .search-input__icon {
+    align-items: center;
+bottom: 0;
+display: flex;
+justify-content: center;
+position: absolute;
+top: 0;
+width: 2.5rem;left: .375rem;
+pointer-events: none;
+  }
+
+  .search-input-wrapper .search-input__input {
+    background-color: #f0f5fb;
+    border-top-color: transparent;
+    border-top-style: solid;
+    border-top-width: 0.125rem;
+    border-right-color: transparent;
+    border-right-style: solid;
+    border-right-width: 0.125rem;
+    border-bottom-color: transparent;
+    border-bottom-style: solid;
+    border-bottom-width: 0.125rem;
+    border-left-color: transparent;
+    border-left-style: solid;
+    border-left-width: 0.125rem;
+    border-image-outset: 0;
+    border-image-repeat: stretch;
+    border-image-slice: 100%;
+    border-image-source: none;
+    border-image-width: 1;
+border-radius: 4px;
+box-shadow: none;
+color: #00265d;
+display: block;
+font-family: inherit;
+font-size: 1.125rem;
+height: 3.125rem;
+width: 100%;
+  margin-bottom: 0.625rem;
+outline-width: 0;
+  padding-right: 0.75rem;
+  padding-left: 0.75rem;
+  transition-property: border-color;
+  transition-duration: 0.15s, 0.15s;
+  transition-timing-function: linear, linear;
+  transition-delay: 0s, 0s;
+  }
+
+.search-input-wrapper .search-icon {
+    flex-shrink: 0;
+height: 1.5rem;
+width: 1.5rem;
+display: inline-block;
+}
+
+.navbar .navbar__option {
+    display: flex;
+    flex: auto;
+    flex-direction: row;
+}
+
+.sort-select {
+    width: 30%;
+    margin-bottom: 10px;
+}

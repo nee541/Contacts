@@ -1,0 +1,281 @@
+<!-- <!DOCTYPE html>
+<html>
+  <head>
+    <title>Item List</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      .item-list {
+        height: calc(100vh - 20px); /* change 20px to adjust for any margins or padding */
+        overflow-y: scroll; 
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px; /* adjust the gap between items */
+        padding: 10px; /* adjust the padding inside the box */
+      }
+
+      .item {
+        width: 100%; /* adjust the width and gap to fit more or less items per row */
+        height: 50px; /* change to whatever height you want each item to be */
+        background-color: lightgray; /* change to whatever color you want */
+        box-sizing: border-box;
+        padding: 10px; /* adjust the padding inside each item */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="item-list">
+      <div class="item">Item 1</div>
+      <div class="item">Item 2</div>
+      <div class="item">Item 3</div>
+      <div class="item">Item 4</div>
+      <div class="item">Item 5</div>
+      <div class="item">Item 6</div>
+      <div class="item">Item 7</div>
+      <div class="item">Item 8</div>
+      <div class="item">Item 9</div>
+      <div class="item">Item 10</div>
+      <div class="item">Item 11</div>
+      <div class="item">Item 12</div>
+      <div class="item">Item 13</div>
+      <div class="item">Item 14</div>
+      <div class="item">Item 15</div>
+      <div class="item">Item 16</div>
+      <div class="item">Item 17</div>
+      <div class="item">Item 18</div>
+      <div class="item">Item 19</div>
+      <div class="item">Item 20</div>
+      <div class="item">Item 21</div>
+      <div class="item">Item 22</div>
+      <div class="item">Item 23</div>
+      <div class="item">Item 24</div>
+      <div class="item">Item 25</div>
+      <div class="item">Item 26</div>
+      <div class="item">Item 27</div>
+      <div class="item">Item 28</div>
+      <div class="item">Item 29</div>
+      <div class="item">Item 30</div>
+    </div>
+  </body>
+</html> -->
+<!-- <!DOCTYPE html>
+<html>
+  <head>
+    <title>Item List</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+
+      .header {
+        height: 50px; /* change to whatever height you want */
+        background-color: lightblue; /* change to whatever color you want */
+      }
+
+      .item-list {
+        overflow-y: auto; 
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        margin-bottom: 10px; /* the 10px margin from the screen bottom */
+      }
+
+      .item {
+        height: 50px; /* change to whatever height you want */
+        background-color: lightgray; /* change to whatever color you want */
+        padding: 10px; /* adjust the padding inside each item */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header"></div>
+    <div class="item-list">
+      <div class="item">Item 1</div>
+      <div class="item">Item 2</div>
+      <div class="item">Item 3</div>
+      <div class="item">Item 4</div>
+      <div class="item">Item 5</div>
+      <div class="item">Item 6</div>
+      <div class="item">Item 7</div>
+      <div class="item">Item 8</div>
+      <div class="item">Item 9</div>
+      <div class="item">Item 10</div>
+      <div class="item">Item 11</div>
+      <div class="item">Item 12</div>
+      <div class="item">Item 13</div>
+      <div class="item">Item 14</div>
+      <div class="item">Item 15</div>
+      <div class="item">Item 16</div>
+      <div class="item">Item 17</div>
+      <div class="item">Item 18</div>
+      <div class="item">Item 19</div>
+      <div class="item">Item 20</div>
+      <div class="item">Item 21</div>
+      <div class="item">Item 22</div>
+      <div class="item">Item 23</div>
+      <div class="item">Item 24</div>
+      <div class="item">Item 25</div>
+      <div class="item">Item 26</div>
+      <div class="item">Item 27</div>
+      <div class="item">Item 28</div>
+      <div class="item">Item 29</div>
+      <div class="item">Item 30</div>
+    </div>
+  </body>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html>
+  <head>
+    <title>Item List</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      .header {
+        height: 50px;
+        background-color: lightblue;
+      }
+
+      .item-wrapper {
+        height: calc(100vh - 50px - 10px);
+        margin-right: 40%;
+        overflow-y: auto;
+        margin-bottom: 10px;
+      }
+
+      .item-list {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px;
+      }
+
+      .item {
+        height: 50px;
+        background-color: lightgray;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header"></div>
+    <div class="item-wrapper">
+      <div class="item-list">
+        <div class="item">Item 1</div>
+        <div class="item">Item 2</div>
+        <div class="item">Item 3</div>
+        <div class="item">Item 4</div>
+        <div class="item">Item 5</div>
+        <div class="item">Item 6</div>
+        <div class="item">Item 7</div>
+        <div class="item">Item 8</div>
+        <div class="item">Item 9</div>
+        <div class="item">Item 10</div>
+        <div class="item">Item 11</div>
+        <div class="item">Item 12</div>
+        <div class="item">Item 13</div>
+        <div class="item">Item 14</div>
+        <div class="item">Item 15</div>
+        <div class="item">Item 16</div>
+        <div class="item">Item 17</div>
+        <div class="item">Item 18</div>
+        <div class="item">Item 19</div>
+        <div class="item">Item 20</div>
+        <div class="item">Item 21</div>
+        <div class="item">Item 22</div>
+        <div class="item">Item 23</div>
+        <div class="item">Item 24</div>
+        <div class="item">Item 25</div>
+        <div class="item">Item 26</div>
+        <div class="item">Item 27</div>
+        <div class="item">Item 28</div>
+        <div class="item">Item 29</div>
+        <div class="item">Item 30</div>
+      </div>
+    </div>
+  </body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Item List</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+
+      .header {
+        height: 50px;
+        background-color: lightblue;
+      }
+
+      /* Add new styles for any other elements you want to position above the item list */
+
+      .item-list {
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        margin: 10px; /* adjust the margin to give the item list some spacing */
+        margin-right: 100px;
+      }
+
+      .item {
+        height: 50px;
+        background-color: lightgray;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header"></div>
+    <!-- Add any other elements you want to position above the item list here -->
+    <div class="item-list">
+      <div class="item">Item 1</div>
+      <div class="item">Item 2</div>
+      <div class="item">Item 3</div>
+      <div class="item">Item 4</div>
+      <div class="item">Item 5</div>
+      <div class="item">Item 6</div>
+      <div class="item">Item 7</div>
+      <div class="item">Item 8</div>
+      <div class="item">Item 9</div>
+      <div class="item">Item 10</div>
+      <div class="item">Item 11</div>
+      <div class="item">Item 12</div>
+      <div class="item">Item 13</div>
+      <div class="item">Item 14</div>
+      <div class="item">Item 15</div>
+      <div class="item">Item 16</div>
+      <div class="item">Item 17</div>
+      <div class="item">Item 18</div>
+      <div class="item">Item 19</div>
+      <div class="item">Item 20</div>
+      <div class="item">Item 21</div>
+      <div class="item">Item 22</div>
+      <div class="item">Item 23</div>
+      <div class="item">Item 24</div>
+      <div class="item">Item 25</div>
+      <div class="item">Item 26</div>
+      <div class="item">Item 27</div>
+      <div class="item">Item 28</div>
+      <div class="item">Item 29</div>
+      <div class="item">Item 30</div>
+    </div>
+  </body>
+</html>

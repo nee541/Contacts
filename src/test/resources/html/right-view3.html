@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Contact Details</title>
+    <style>
+        .right-view {
+            width: 50%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            box-sizing: border-box;
+            padding: 20px;
+        }
+
+        .name-and-buttons {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+
+        .contact-name {
+            text-align: center;
+            font-size: 28px;
+            margin-right: 10px;
+        }
+
+        .button-container {
+            display: flex;
+        }
+
+        .edit-button,
+        .update-button,
+        .delete-button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .edit-button:hover,
+        .update-button:hover,
+        .delete-button:hover {
+            background-color: #3e8e41;
+        }
+
+        .key-value-pairs-container {
+            flex-grow: 1;
+            overflow: auto;
+        }
+
+        .key-value-pairs {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .kv-pair {
+            display: flex;
+            align-items: center;
+            padding: 5px 0;
+        }
+
+        .key {
+            font-weight: bold;
+            width: 120px;
+            margin-right: 10px;
+        }
+
+        .value {
+            flex: 1;
+            overflow-wrap: break-word;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="right-view">
+        <div class="name-and-buttons">
+            <h2 class="contact-name">John Doe</h2>
+            <div class="button-container">
+                <button class="edit-button">Edit</button>
+                <button class="update-button">Update</button>
+                <button class="delete-button">Delete</button>
+            </div>
+        </div>
+        <div class="key-value-pairs-container">
+            <div class="key-value-pairs">
+                <div class="kv-pair">
+                    <div class="key">Phone:</div>
+                    <div class="value">199999999</div>
+                </div>
+                <!-- Add more key-value pairs dynamically as needed -->
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
