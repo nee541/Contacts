@@ -1,8 +1,10 @@
 package me.app.contacts.model;
 
 import com.google.gson.Gson;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class PhoneNumber {
+    @JsonProperty("phoneNumber")
     private long phoneNumber = 0;
 
     PhoneNumber() {
@@ -18,6 +20,10 @@ public class PhoneNumber {
 
     public long getNumber() {
         return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = Long.parseLong(phoneNumber);
     }
 
     @Override

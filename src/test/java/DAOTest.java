@@ -7,6 +7,7 @@ import me.app.contacts.dao.DAOFactory;
 import me.app.contacts.dao.ContactDAO;
 import me.app.contacts.model.Contact;
 import me.app.contacts.model.PhoneNumber;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
  * Test harness for the com.example.dao package. This require the following preconditions:
@@ -38,6 +39,12 @@ import me.app.contacts.model.PhoneNumber;
 public class DAOTest {
 
     public static void main(String[] args) throws Exception {
+        String json = "{\"phoneNumber\": \"111\", \"name\": \"example\", \"extraInfo\": {\"first\": \"first value\", \"second\": \"second value\"}}";
+        ObjectMapper mapper = new ObjectMapper();
+        Contact newContact = mapper.readValue(json, Contact.class);
+        System.out.println(newContact.toString());
+        System.out.println(newContact.toJsonString());
+
         // Obtain DAOFactory.
         DAOFactory contactsDB = DAOFactory.getInstance("contacts.jdbc");
         System.out.println("DAOFactory successfully obtained: " + contactsDB);

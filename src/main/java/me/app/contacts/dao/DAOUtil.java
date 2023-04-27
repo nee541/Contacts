@@ -11,8 +11,6 @@ import java.util.Map;
 import com.google.gson.Gson;
 import jakarta.json.Json;
 import jakarta.json.JsonObjectBuilder;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 /**
  * Utility class for DAO's. This class contains commonly used DAO logic which is been refactored in

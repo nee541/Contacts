@@ -11,13 +11,17 @@
 <head>
     <title>Contacts</title>
     <link rel="stylesheet" href="../css/style.css" type="text/css">
+    <!-- Include SweetAlert styles -->
+    <link rel="stylesheet" href="../css/sweetalert.css">
+    <!-- Include SweetAlert JavaScript -->
+    <script src="../js/sweetalert.js"></script>
     <style>
         .modal {
             position: fixed;
             z-index: 1;
             left: 0;
             top: 0;
-            width: 100%;
+            width: 40%;
             height: 100%;
             overflow: auto;
             background: rgba(104, 205, 142, 0.2);
@@ -41,8 +45,8 @@
         input[type="text"] {
             width: 100%;
             padding: 10px;
-            margin-top: 5px;
-            margin-bottom: 15px;
+            /*margin-top: 5px;*/
+            /*margin-bottom: 15px;*/
             border: none;
             border-bottom: 1px solid #ccc;
             font-size: 16px;
@@ -120,93 +124,45 @@
             transform: translateX(-50%);
         }
     </style>
-    <script>
-        function searchContact() {
-            var searchTerm = document.getElementById("contactSearch").value;
-            var xhr = new XMLHttpRequest(); // create a new XMLHttpRequest object
-            xhr.onreadystatechange = function() { // set the callback function to execute when the request completes
-                if (this.readyState == 4 && this.status == 200) { // check if the request completed successfully
-                    var response = this.responseText; // retrieve the response from the server
-                    console.log(response); // for example, log the response to the console
-                }
-            };
-            xhr.open("GET", "/search?term=" + searchTerm); // prepare the request (change the URL to match your server's endpoint)
-            xhr.send(); // send the request to the server
-        }
-
-        function addKeyValue() {
-            var userKeysContainer = document.getElementById("user-keys");
-
-            // Create new key-value pair elements
-            var selectedKey = document.getElementById("newKey");
-
-            var keyInput = document.createElement("input");
-            keyInput.type = "text";
-            console.log(selectedKey.value)
-            if (selectedKey.value !== "new") {
-                keyInput.value = selectedKey.options[selectedKey.selectedIndex].text;
-            } else {
-                keyInput.placeholder = "Key";
-            }
-
-            var valueInput = document.createElement("input");
-            valueInput.type = "text";
-            valueInput.placeholder = "Value";
-
-            var removeIcon = document.createElement("span");
-            removeIcon.classList.add("icon");
-            removeIcon.innerHTML = "&#x2715"; // X symbol to indicate removal
-
-            var keyValue = document.createElement("div");
-            keyValue.classList.add("key-value");
-            keyValue.appendChild(keyInput);
-            keyValue.appendChild(valueInput);
-            keyValue.appendChild(removeIcon);
-
-            // Add new key-value pair to the form
-            userKeysContainer.appendChild(keyValue);
-
-            // Attach click event to the remove icon
-            removeIcon.addEventListener("click", function () {
-                userKeysContainer.removeChild(keyValue);
-            });
-        }
-    </script>
+    <script type="text/javascript" src="../js/buttons.js"></script>
 </head>
 
 <body color="#f0f5fb">
 <div class="left-view">
     <!-- Add navigation bar with form elements -->
+<%--    <h1>All Contacts ${contactNum}</h1>--%>
+    <h1>All Contacts ${contactNum}</h1>
     <div class="navbar">
-        <h1>All Contacts ${contactNum}</h1>
-        <form class="form">
-            <input id="contactSearch" type="text" class="search-input" placeholder="Search Contacts" name="search_name">
-            <button class="search-btn" onclick="searchContact()">search</button>
+<%--        <h1>All Contacts ${contactNum}</h1>--%>
+<%--        <div class="break"></div>--%>
+        <form style="margin-bottom: 0px" action="/contact" method="get">
+            <input id="contactSearch" type="text" class="search-input" placeholder="Search Contacts" name="q">
+            <button class="search-btn">search</button>
         </form>
-        <span>Sorted by</span>
-        <select id="sortBy" onchange="document.location.href=this.value">
+        <span style="margin-top: 10px">Sorted by</span>
+        <select id="sortBy" onchange="addOrUpdateUrlParam('sort', this.value)">
             <c:choose>
                 <c:when test="${param.sort==1}">
-                    <option value="?sort=1" selected="selected">Name</option>
+                    <option value="1" selected="selected">Add Time</option>
                 </c:when>
                 <c:otherwise>
-                    <option value="?sort=1">Name</option>
+                    <option value="1">Add Time</option>
                 </c:otherwise>
             </c:choose>
             <c:choose>
                 <c:when test="${param.sort==2}">
-                    <option value="?sort=2" selected="selected">Phone</option>
+                    <option value="2" selected="selected">Name</option>
                 </c:when>
                 <c:otherwise>
-                    <option value="?sort=2">Phone</option>
+                    <option value="2">Name</option>
                 </c:otherwise>
             </c:choose>
             <c:choose>
                 <c:when test="${param.sort==3}">
-                    <option value="?sort=3" selected="selected">Add Time</option>
+                    <option value="3" selected="selected">Phone</option>
                 </c:when>
                 <c:otherwise>
-                    <option value="?sort=3">Add Time</option>
+                    <option value="3">Phone</option>
                 </c:otherwise>
             </c:choose>
 <%--                <option value="?sort=1">Name</option>--%>
@@ -224,13 +180,7 @@
     </div>
     <div class="clear"></div>
 
-    <div id="formModal" class="modal">
-<%--        <div>--%>
-<%--            <span id="closeFormModal">--%>
-<%--                <img src="../resources/images/icon_close.svg" alt="">--%>
-<%--            </span>--%>
-<%--            <h1 style="color: green;">Hello world!</h1>--%>
-<%--        </div>--%>
+    <div id="formModal" class="modal middle">
         <div id="form-container">
             <span id="closeFormModal" class="close-cta">
                 <img src="../resources/images/icon_close.svg" alt="">
@@ -238,19 +188,19 @@
             <h1 style="text-align: center;">Add Contact</h1>
             <form>
                 <label>Name:</label>
-                <input type="text" readonly="readonly">
+                <input id="newContactName" type="text">
 
                 <label>Phone Number:</label>
-                <input type="text" readonly="readonly">
+                <input id="newContactPhoneNumber" type="text">
 
                 <div class="add-user-keys">
                     <h4 class="other-key-text">Other Keys:</h4>
                     <select id="newKey">
-                        <option value="new">Self-defined</option>
-                        <option value="email" selected="selected">Email</option>
+                        <option value="new" selected="selected">Self-defined</option>
+                        <option value="email">Email</option>
                         <option value="address">Address</option>
                     </select>
-                    <button type="button" class="btn btn-success" onclick="addKeyValue()">Add</button>
+                    <button type="button" class="btn btn-success" onclick="addKeyValueWhenAdd()">Add</button>
                 </div>
 
                 <div id="user-keys">
@@ -258,7 +208,41 @@
                 </div>
 
                 <div class="buttons">
-                    <button type="submit" class="btn btn-success text-center middle" style="margin-top: 8em;">Submit</button>
+                    <button type="button" onclick="submitNewContact()" class="btn btn-success text-center middle" style="margin-top: 8em;">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="updateFormModal" class="modal middle">
+        <div id="updateFormContainer">
+            <span id="updateCloseFormModal" class="close-cta">
+                <img src="../resources/images/icon_close.svg" alt="">
+            </span>
+            <h1 style="text-align: center;">Update Contact</h1>
+            <form>
+                <label>Name:</label>
+                <input id="updateContactName" type="text">
+
+                <label>Phone Number:</label>
+                <input id="updateContactPhoneNumber" type="text">
+
+                <div class="add-user-keys">
+                    <h4 class="other-key-text">Other Keys:</h4>
+                    <select id="updateNewKey">
+                        <option value="new" selected="selected">Self-defined</option>
+                        <option value="email">Email</option>
+                        <option value="address">Address</option>
+                    </select>
+                    <button type="button" class="btn btn-success" onclick="addKeyValueWhenUpdate()">Add</button>
+                </div>
+
+                <div id="updateUserKeys">
+
+                </div>
+
+                <div class="buttons">
+                    <button type="button" onclick="sendUpdatedContact(${param.id})" class="btn btn-success text-center middle" style="margin-top: 8em;">Update</button>
                 </div>
             </form>
         </div>
@@ -278,6 +262,12 @@
             console.log("Close form modal");
             formModal.style.display = "none";
         }
+
+        let updateFormModal = document.getElementById("updateFormModal")
+        let updateCloseFormModal = document.getElementById("updateCloseFormModal");
+        updateCloseFormModal.onclick = function () {
+            updateFormModal.style.display = "none";
+        }
         // when user click anywhere outside of the modal, close it
         // window.onclick = function (event) {
         //     if (event.target == formModal) {
@@ -294,7 +284,7 @@
 
             <div class="contact-list">
                 <c:forEach items="${contacts}" var="contact">
-                    <li class="contact" onclick="location.href='?id=${contact.id}'"><a>${contact.name} </a></li>
+                    <li class="contact" onclick="addOrUpdateUrlParam('id', ${contact.id})"><a>${contact.name} </a></li>
                 </c:forEach>
             </div>
         </div>
@@ -308,12 +298,12 @@
         </a>
         <h2 class="contact-name">${name}</h2>
         <div class="button-container">
-            <button class="edit-button" type="submit" onclick="location.href='?id=${param.id}&edit=1'">Edit</button>
+<%--            <button class="edit-button" type="submit" onclick="location.href='?id=${param.id}&edit=1'">Edit</button>--%>
 <%--            <form class="edit-button" action="https://google.com" style="display: inline">--%>
 <%--                <input type="submit" value="Edit" style="display: inline">--%>
 <%--            </form>--%>
-            <button class="update-button" type="submit" onclick="location.href='?id=${param.id}&update=1'">Update</button>
-            <button class="delete-button" type="submit" onclick="location.href='?id=${param.id}&delete=1'">Delete</button>
+            <button class="update-button" type="button" onclick="updateContactForm(${param.id})">Update</button>
+            <button class="delete-button" type="button" onclick="deleteContact(${param.id})">Delete</button>
         </div>
         <div class="contact-wrapper">
             <div class="key-value-pairs">

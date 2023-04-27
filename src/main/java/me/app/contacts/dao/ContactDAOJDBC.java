@@ -175,4 +175,20 @@ public class ContactDAOJDBC implements ContactDAO {
             throw new DAOException(e);
         }
     }
+
+    @Override
+    public void delete(Long id) throws DAOException {
+        Object[] values = { id.longValue() };
+        try (
+                Connection connection = daoFactory.getConnection();
+                PreparedStatement statement = prepareStatement(connection, SQL_DELETE, false, values);
+        ) {
+            int affectedRows = statement.executeUpdate();
+            if (affectedRows == 0) {
+                throw new DAOException("Deleting contact failed, no rows affected.");
+            }
+        } catch (SQLException e) {
+            throw new DAOException(e);
+        }
+    }
 }

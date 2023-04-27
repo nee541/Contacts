@@ -45,10 +45,12 @@ public interface ContactDAO {
     public void update(Contact contact) throws IllegalArgumentException, DAOException;
 
     /**
-     * Delete the given user from the database. After deleting, the DAO will set the ID of the given
+     * Delete the given contact from the database. After deleting, the DAO will set the ID of the given
      * user to null.
      * @param contact The contact to be deleted from the database.
      * @throws DAOException If something fails at database level.
      */
     public void delete(Contact contact) throws DAOException;
+
+    public void delete(Long id) throws DAOException;
 }
